@@ -27,7 +27,7 @@ async fn upload_image(secrets: Secrets<'_>, client: &mut Client, path: PathBuf) 
     .oauth1(secrets)
     .post("https://api.twitter.com/2/tweets")
     .body(
-        format!(r##"{{"media":{{"media_ids":["{}"]}},"text":"#RWBY\nDM me submissions"}}"##,upload_resp["media_id"])
+        format!(r##"{{"media":{{"media_ids":["{}"]}},"text":"{}"}}"##,upload_resp["media_id"], env::var("MESSAGE").unwrap())
     )
     .header("Content-Type", "application/json").send().await.unwrap().json().await.unwrap();
     println!("{:?}",post_resp);
@@ -59,7 +59,7 @@ async fn upload_media(secrets: Secrets<'_>, client: &mut Client, path: PathBuf) 
     .oauth1(secrets)
     .post("https://api.twitter.com/2/tweets")
     .body(
-        format!(r##"{{"media":{{"media_ids":["{}"]}},"text":"#RWBY\nDM me submissions"}}"##,uploader.media_id)
+        format!(r##"{{"media":{{"media_ids":["{}"]}},"text":"{}"}}"##,uploader.media_id, env::var("MESSAGE").unwrap())
     )
     .header("Content-Type", "application/json").send().await.unwrap().json().await.unwrap();
     println!("{:?}",post_resp);
