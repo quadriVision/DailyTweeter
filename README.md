@@ -12,5 +12,5 @@
 4. Type "cargo run" to instantly run the program  or "cargo build" to create the file for running it later
 
 # Contact
-[mailto:quadvision@proton.me](E-mail)
-[https://quadvision.eu](Website)
+[E-mail](mailto:quadvision@proton.me) <br>
+[Website](https://quadvision.eu)
